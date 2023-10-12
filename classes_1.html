@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        const curr_year= new Date().getFullYear();
+//class syn for class
+class person_class{
+    
+    constructor(name,year,gender){
+        this.name=name
+        this.gender=gender
+        this.age=curr_year-year
+    }
+    
+    print_details() {
+        console.log(`${this.name} is of age ${this.age} and of gender ${this.gender}
+        -Created by normal class`)
+        
+    }
+
+}
+const outside_arrow = (person)=>{
+    console.log(`${person.name}`)
+}
+
+ //function syn for class
+function person_func(name,year,gender){
+    this.name=name;
+    this.year=curr_year-year;
+    this.gender=gender;
+}
+
+person_func.prototype.print_details=function(){
+    console.log(`${this.name} is of age ${this.year} and of gender ${this.gender}
+    -Created by function`)
+}
+
+//object class
+const person_obj={
+    name:"Soham",
+    age:20,
+    gender:"Male",
+    details:function(){
+        console.log(`${this.name} is of age ${this.age} and of gender ${this.gender}
+        -Created by object`)
+    }
+
+
+
+}
+
+
+//class obj
+var soham = new person_class("Soham",2003,"Male")
+soham.print_details()
+outside_arrow(soham)
+//function obj
+var soham = new person_func("Soham",2003,"Male")
+soham.print_details()
+person_obj.details() 
+
+    </script>
+</head>
+<body>
+   <h2>Output in console log</h2> 
+</body>
+</html>
+
